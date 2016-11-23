@@ -19,15 +19,38 @@ namespace MPG_Calculator
 
         private void btnMPG_Click(object sender, EventArgs e)
         {
-            double dMiles, dGallons, dDPG, dMPG;
+            double dMiles, dGallons, dMPG;
+
+            dMiles = Convert.ToDouble(txtMiles.Text);
+            dGallons = Convert.ToDouble(txtGallons.Text);
+            
+
+            dMPG = dMiles / dGallons;
+
+            lblMPG.Text = dMPG.ToString("##.##");
+        }
+
+        private void btnDPM_Click(object sender, EventArgs e)
+        {
+            double dMiles, dGallons, dDPG, dDPM;
 
             dMiles = Convert.ToDouble(txtMiles.Text);
             dGallons = Convert.ToDouble(txtGallons.Text);
             dDPG = Convert.ToDouble(txtDPG.Text);
 
-            dMPG = dMiles / dGallons;
+            dDPM = (dGallons * dDPG) / dMiles;
 
-            lblMPG.Text = dMPG.ToString("n");
+            lblDPM.Text = dDPM.ToString("c");
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtDPG.Text = "";
+            txtGallons.Text = "";
+            txtMiles.Text = "";
+
+            lblDPM.Text = "";
+            lblMPG.Text = "";
         }
     }
 }

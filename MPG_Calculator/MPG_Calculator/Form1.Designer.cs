@@ -38,10 +38,12 @@
             this.txtGallons = new System.Windows.Forms.TextBox();
             this.txtDPG = new System.Windows.Forms.TextBox();
             this.lblMPG = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDPM = new System.Windows.Forms.Label();
             this.btnMPG = new System.Windows.Forms.Button();
             this.btnDPM = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -94,21 +96,21 @@
             this.txtMiles.Location = new System.Drawing.Point(70, 25);
             this.txtMiles.Name = "txtMiles";
             this.txtMiles.Size = new System.Drawing.Size(100, 20);
-            this.txtMiles.TabIndex = 5;
+            this.txtMiles.TabIndex = 1;
             // 
             // txtGallons
             // 
             this.txtGallons.Location = new System.Drawing.Point(70, 57);
             this.txtGallons.Name = "txtGallons";
             this.txtGallons.Size = new System.Drawing.Size(100, 20);
-            this.txtGallons.TabIndex = 6;
+            this.txtGallons.TabIndex = 2;
             // 
             // txtDPG
             // 
             this.txtDPG.Location = new System.Drawing.Point(70, 90);
             this.txtDPG.Name = "txtDPG";
             this.txtDPG.Size = new System.Drawing.Size(100, 20);
-            this.txtDPG.TabIndex = 7;
+            this.txtDPG.TabIndex = 3;
             // 
             // lblMPG
             // 
@@ -119,21 +121,21 @@
             this.lblMPG.Size = new System.Drawing.Size(100, 20);
             this.lblMPG.TabIndex = 8;
             // 
-            // label6
+            // lblDPM
             // 
-            this.label6.BackColor = System.Drawing.SystemColors.Window;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Location = new System.Drawing.Point(70, 229);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 20);
-            this.label6.TabIndex = 9;
+            this.lblDPM.BackColor = System.Drawing.SystemColors.Window;
+            this.lblDPM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDPM.Location = new System.Drawing.Point(70, 229);
+            this.lblDPM.Name = "lblDPM";
+            this.lblDPM.Size = new System.Drawing.Size(100, 20);
+            this.lblDPM.TabIndex = 9;
             // 
             // btnMPG
             // 
             this.btnMPG.Location = new System.Drawing.Point(176, 189);
             this.btnMPG.Name = "btnMPG";
             this.btnMPG.Size = new System.Drawing.Size(75, 20);
-            this.btnMPG.TabIndex = 10;
+            this.btnMPG.TabIndex = 4;
             this.btnMPG.Text = "MPG";
             this.btnMPG.UseVisualStyleBackColor = true;
             this.btnMPG.Click += new System.EventHandler(this.btnMPG_Click);
@@ -143,28 +145,53 @@
             this.btnDPM.Location = new System.Drawing.Point(176, 229);
             this.btnDPM.Name = "btnDPM";
             this.btnDPM.Size = new System.Drawing.Size(75, 20);
-            this.btnDPM.TabIndex = 11;
+            this.btnDPM.TabIndex = 5;
             this.btnDPM.Text = "$/Mile";
             this.btnDPM.UseVisualStyleBackColor = true;
+            this.btnDPM.Click += new System.EventHandler(this.btnDPM_Click);
             // 
             // btnClear
             // 
+            this.btnClear.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClear.Location = new System.Drawing.Point(82, 139);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 20);
-            this.btnClear.TabIndex = 12;
+            this.btnClear.TabIndex = 6;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 266);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(185, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "MPG calculation limited to hundredths";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 281);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "$/Mile calculation limited to cents";
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnMPG;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(259, 290);
+            this.CancelButton = this.btnClear;
+            this.ClientSize = new System.Drawing.Size(259, 303);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDPM);
             this.Controls.Add(this.btnMPG);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblDPM);
             this.Controls.Add(this.lblMPG);
             this.Controls.Add(this.txtDPG);
             this.Controls.Add(this.txtGallons);
@@ -193,10 +220,12 @@
         private System.Windows.Forms.TextBox txtGallons;
         private System.Windows.Forms.TextBox txtDPG;
         private System.Windows.Forms.Label lblMPG;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDPM;
         private System.Windows.Forms.Button btnMPG;
         private System.Windows.Forms.Button btnDPM;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 
